@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="ArticleApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Sports With Josh</title>
+  <link rel="stylesheet" type="text/css" href="./base.css">
+</head>
+<body>
+  <main data-ng-controller="ArticleController as articlectrl" data-ng-init="articlectrl.getPosts()">
+      <section data-ng-repeat="article in articlectrl.articles">
+        <h1 ng-bind="article.title"></h1>
+        <p ng-bind="article.date"></p>
+        <p ng-bind="article.content"></p>
+        <button data-ng-click="articlectrl.editPost(article)">Edit</button>
+        <button data-ng-click="articlectrl.removePost(article)">Delete</button>
+      </section>
+  <form data-ng-submit="articlectrl.createPost(newArticle)" name="formPractice" novalidate>
+    <input type="text" data-ng-model="newArticle.title" name="Title" required/>
+    <input type="text" data-ng-model="newArticle.date" name="Date" required/>
+    <textarea type="text" data-ng-model="newArticle.content" name="Content" required></textarea>
+    <!-- <div ng-messages="formPractice.name.$error">
+      <p ng-message="required">Your name is required.</p>
+    </div> -->
+    <button type="submit">New Post</button>
+  </form>
+  </main>
+  <script src="./bundle.js"></script>
+</body>
+</html>
+

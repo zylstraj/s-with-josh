@@ -1,0 +1,31 @@
+{
+  "name": "s-with-josh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zylstraj/s-with-josh.git"
+  },
+  "author": "jz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zylstraj/s-with-josh/issues"
+  },
+  "homepage": "https://github.com/zylstraj/s-with-josh#readme",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "webpack-stream": "^3.1.0"
+  }
+}
