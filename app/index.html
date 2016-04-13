@@ -7,22 +7,33 @@
 </head>
 <body>
   <main data-ng-controller="ArticleController as articlectrl" data-ng-init="articlectrl.getPosts()">
-      <section data-ng-repeat="article in articlectrl.articles">
-        <h1 ng-bind="article.title"></h1>
-        <p ng-bind="article.date"></p>
-        <p ng-bind="article.content"></p>
-        <button data-ng-click="articlectrl.editPost(article)">Edit</button>
-        <button data-ng-click="articlectrl.removePost(article)">Delete</button>
-      </section>
-  <form data-ng-submit="articlectrl.createPost(newArticle)" name="formPractice" novalidate>
-    <input type="text" data-ng-model="newArticle.title" name="Title" required/>
-    <input type="text" data-ng-model="newArticle.date" name="Date" required/>
-    <textarea type="text" data-ng-model="newArticle.content" name="Content" required></textarea>
+    <section data-ng-repeat="article in articlectrl.articles">
+      <h1 ng-bind="article.title"></h1>
+      <p ng-bind="article.date"></p>
+      <p ng-bind="article.content"></p>
+        <!-- <button data-ng-click="articlectrl.editPost(article)">Edit</button> -->
+      <button type="submit" data-ng-click="articlectrl.editPost.displayed = article._id">Edit Post</button>
+      <form data-ng-show="articlectrl.editPost.displayed == article._id" data-ng-submit="articlectrl.editPost(article)">
+        <input type="text" data-ng-model="article.title"/>
+        <input type="text" data-ng-model="article.date"/>
+        <textarea type="text"  data-ng-model="article.content"/></textarea>
+        <button type="submit">Save</button>
+        <button type="reset" data-ng-click="articlectrl.editPost(article); articlectrl.editPost.displayed=null">Cancel</button>
+      </form>
+      <button data-ng-click="articlectrl.removePost(article)">Delete</button>
+    </section>
+    <form data-ng-submit="articlectrl.createPost(newArticle)" name="formPractice" novalidate>
+      <label for="someTitle">Title</label>
+      <input type="text" data-ng-model="newArticle.title" name="Title" required/>
+      <label for="someDate">Date</label>
+      <input type="text" data-ng-model="newArticle.date" name="Date" id="someDate" required/>
+      <label for="someContent">Content</label>
+      <textarea type="text" data-ng-model="newArticle.content" name="Content" id="someContent"required></textarea>
     <!-- <div ng-messages="formPractice.name.$error">
       <p ng-message="required">Your name is required.</p>
     </div> -->
-    <button type="submit">New Post</button>
-  </form>
+      <button type="submit">New Post</button>
+    </form>
   </main>
   <script src="./bundle.js"></script>
 </body>

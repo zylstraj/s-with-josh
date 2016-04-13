@@ -43,4 +43,13 @@ app.controller('ArticleController', ['$http', function($http) {
     });
     okay.editPost.displayed = null;
   };
+   okay.reset = function(article) {
+      $http.get(mainRoute +'/'+ article._id)
+        .then(function(res){
+          okay.articles[okay.articles.indexOf(article)] = res.data;
+        })
+        .catch(function(err) {
+      console.log(err);
+    });
+}
 }]);
