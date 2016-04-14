@@ -12,14 +12,22 @@
       <p ng-bind="article.date"></p>
       <p ng-bind="article.content"></p>
         <!-- <button data-ng-click="articlectrl.editPost(article)">Edit</button> -->
-      <button type="submit" data-ng-click="articlectrl.editPost.displayed = article._id">Edit Post</button>
-      <form data-ng-show="articlectrl.editPost.displayed == article._id" data-ng-submit="articlectrl.editPost(article)">
+      <!-- <button type="submit" data-ng-click="articlectrl.editPost.displayed = article._id">Edit Post</button> -->
+      <button type="submit" data-ng-click="articlectrl.togglePost(article)">Edit Post</button>
+      <form data-ng-if="article.editing" data-ng-submit="articlectrl.editPost(article)">
+        <input type="text" data-ng-model="article.title"/>
+        <input type="text" data-ng-model="article.date"/>
+        <textarea type="text" data-ng-model="article.content"></textarea>
+        <button data-ng-click="articlectrl.togglePost(article)">Cancel</button>
+        <button type="submit">Update</button>
+      </form>
+      <!-- <form data-ng-show="articlectrl.editPost.displayed == article._id" data-ng-submit="articlectrl.editPost(article)">
         <input type="text" data-ng-model="article.title"/>
         <input type="text" data-ng-model="article.date"/>
         <textarea type="text"  data-ng-model="article.content"/></textarea>
         <button type="submit">Save</button>
         <button type="reset" data-ng-click="articlectrl.editPost(article); articlectrl.editPost.displayed=null">Cancel</button>
-      </form>
+      </form> -->
       <button data-ng-click="articlectrl.removePost(article)">Delete</button>
     </section>
     <form data-ng-submit="articlectrl.createPost(newArticle)" name="formPractice" novalidate>
