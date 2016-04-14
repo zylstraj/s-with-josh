@@ -7,6 +7,7 @@ app.controller('ArticleController', ['$http', function($http) {
   const mainRoute = 'http://localhost:3000/articles';
   let okay = this;
   okay.articles = ['article'];
+  okay.editing = false;
   okay.getPosts = function() {
       $http.get(mainRoute)
       .then(function(result) {
@@ -34,13 +35,35 @@ app.controller('ArticleController', ['$http', function($http) {
       });
     });
   }
+  // okay.editPost = function(article) {
+  //   $http.put(mainRoute + '/' + article._id)
+  //   .then(function(res){
+  //     console.log(res.data)
+  //   })
+  //   .catch(function(err){
+  //   });
+  //   okay.editPost.displayed = null;
+  // };
   okay.editPost = function(article) {
-    $http.put(mainRoute + '/' + article._id)
+    $http.put(mainRoute + '/' + article._id, article)
     .then(function(res){
-      console.log(res.data)
+      article.editing = false;
     })
     .catch(function(err){
-    });
-    okay.editPost.displayed = null;
+      console.log(err)
+    })
   };
+  okay.togglePost = function(article) {
+    if(!article.editing) {
+      article.backupTitle = article.title;
+      article.backupDate = article.date;
+      article.backupContent = article.content;
+      article.editing = true;
+    } else {
+      article.title = article.backupTitle;
+      article.date = article.backupDate;
+      article.content = article.backupContent;
+      article.editing = false;
+    }
+  }
 }]);
