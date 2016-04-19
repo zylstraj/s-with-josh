@@ -16,13 +16,13 @@ describe('Angular End to End Testing', function() {
   });
   it('Should Update The Entire Post', function() {
     browser.get('http://localhost:8080/build');
-    updateButton.click()
-    //titleBlog.clear();
+    // updateButton.click()
+    titleBlog.clear();
     titleBlog.sendKeys('Basketball');
-    //dateBlog.clear();
+    dateBlog.clear();
     dateBlog.sendKeys('April 15');
-    //contentBlog.clear();
-    // contentBlog.sendKeys('Basketball playoffs start today!');
+    contentBlog.clear();
+    contentBlog.sendKeys('Basketball playoffs start today!');
     editBlog.click();
 
     expect(titleBlog.getAttribute('value')).toEqual('Basketball');
