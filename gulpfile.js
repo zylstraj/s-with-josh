@@ -6,6 +6,7 @@ var paths = {
   js: ['*.js', 'routes/*.js', 'app/*.js', 'models/*.js'],
   html: ['app/**/*.html'],
   css: ['app/**/*.css'],
+  test: [__dirname + '/tests/client_spec.js']
 };
 
 gulp.task('clean', function() {
@@ -31,6 +32,11 @@ gulp.task('build:js', function() {
     }
   }))
   .pipe(gulp.dest('build/'));
+});
+gulp.task('bundle:test', function() {
+  return gulp.src(paths.test)
+    .pipe(webpack({output: {filename: 'test_bundle.js'}}))
+    .pipe(gulp.dest('./tests'));
 });
 
 gulp.task('watch:css', function() {

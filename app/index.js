@@ -8,6 +8,10 @@ app.controller('ArticleController', ['$http', function($http) {
   let okay = this;
   okay.articles = ['article'];
   okay.editing = false;
+  okay.title = "Jim";
+  okay.date = "May 15";
+  okay.content = "Jim was the best in the Office"
+
   okay.getPosts = function() {
       $http.get(mainRoute)
       .then(function(result) {

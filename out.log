@@ -1,0 +1,71 @@
+Using the selenium server at http://localhost:4444/wd/hub
+[launcher] Running 1 instances of WebDriver
+Started
+[31mF[0m[31mF[0m
+
+Failures:
+1) Angular End to End Testing Should have a Title
+  Message:
+[31m    Failed: Angular could not be found on the page http://localhost:8080/build : angular never provided resumeBootstrap[0m
+  Stack:
+    Error: Angular could not be found on the page http://localhost:8080/build : angular never provided resumeBootstrap
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/built/protractor.js:680:17
+        at Promise.invokeCallback_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
+        at TaskQueue.execute_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+        at TaskQueue.executeNext_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7
+        at process._tickCallback (node.js:364:9)
+    From: Task: Run it("Should have a Title") in control flow
+        at Object.<anonymous> (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/jasminewd2/index.js:81:14)
+    From asynchronous test: 
+    Error
+        at Suite.<anonymous> (/Users/joshzylstra/Desktop/401 Class/angular/s-with-josh/tests/e2e/spec.js:12:3)
+        at Object.<anonymous> (/Users/joshzylstra/Desktop/401 Class/angular/s-with-josh/tests/e2e/spec.js:1:1)
+        at Module._compile (module.js:409:26)
+        at Object.Module._extensions..js (module.js:416:10)
+        at Module.load (module.js:343:32)
+        at Function.Module._load (module.js:300:12)
+
+2) Angular End to End Testing Should Update The Entire Post
+  Message:
+[31m    Failed: No element found using locator: by.model("article.title")[0m
+  Stack:
+    NoSuchElementError: No element found using locator: by.model("article.title")
+        at WebDriverError (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/error.js:27:10)
+        at NoSuchElementError (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/error.js:230:10)
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/built/element.js:674:15
+        at Promise.invokeCallback_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
+        at TaskQueue.execute_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+        at TaskQueue.executeNext_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7
+        at process._tickCallback (node.js:364:9)
+    Error
+        at [object Object].ElementArrayFinder.applyAction_ (/Users/joshzylstra/.node/lib/node_modules/protractor/built/element.js:380:21)
+        at [object Object].ElementArrayFinder.(anonymous function) [as clear] (/Users/joshzylstra/.node/lib/node_modules/protractor/built/element.js:78:17)
+        at [object Object].ElementFinder.(anonymous function) [as clear] (/Users/joshzylstra/.node/lib/node_modules/protractor/built/element.js:708:7)
+        at Object.<anonymous> (/Users/joshzylstra/Desktop/401 Class/angular/s-with-josh/tests/e2e/spec.js:20:15)
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+        at new Promise (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1043:7)
+        at controlFlowExecute (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+        at TaskQueue.execute_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+        at TaskQueue.executeNext_ (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+        at /Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2697:25
+    From: Task: Run it("Should Update The Entire Post") in control flow
+        at Object.<anonymous> (/Users/joshzylstra/.node/lib/node_modules/protractor/node_modules/jasminewd2/index.js:81:14)
+    From asynchronous test: 
+    Error
+        at Suite.<anonymous> (/Users/joshzylstra/Desktop/401 Class/angular/s-with-josh/tests/e2e/spec.js:17:3)
+        at Object.<anonymous> (/Users/joshzylstra/Desktop/401 Class/angular/s-with-josh/tests/e2e/spec.js:1:1)
+        at Module._compile (module.js:409:26)
+        at Object.Module._extensions..js (module.js:416:10)
+        at Module.load (module.js:343:32)
+        at Function.Module._load (module.js:300:12)
+
+2 specs, 2 failures
+Finished in 26.997 seconds
+[launcher] 0 instance(s) of WebDriver still running
+[launcher] chrome #01 failed 2 test(s)
+[launcher] overall: 2 failed spec(s)
+[launcher] Process exited with error code 1
